@@ -52,4 +52,9 @@ class StringUtilsTest {
 		assertThat(StringUtils.countVowels("I want to know the number of vowels in this string.")).isEqualTo(13L);
 	}
 
+	@Test
+	void testRemoveWhitespace() throws Exception {
+		assertThat(StringUtils.removeWhitespace("g eeks for ge eeks ")).isEqualTo("geeksforgeeeks");
+	}
+
 }

@@ -20,8 +20,8 @@ public class StringUtils {
 
 	public static long countVowels(final String s) {
 		return s.toLowerCase() //
-				.codePoints() //
-				.mapToObj(p -> (char) p) //
+				.chars() //
+				.mapToObj(c -> (char) c) //
 				.filter(StringUtils::isVowel) //
 				.count();
 	}
@@ -37,6 +37,13 @@ public class StringUtils {
 		default:
 			return false;
 		}
+	}
+
+	public static String removeWhitespace(final String s) {
+		return s.chars() //
+				.filter(c -> !Character.isWhitespace(c)) //
+				.collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append) //
+				.toString();
 	}
 
 }
