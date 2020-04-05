@@ -7,6 +7,9 @@
 	<version>0.1.0-SNAPSHOT</version>
 	
 	<properties>
+		<encoding>UTF-8</encoding>
+		<project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
+		<project.resources.sourceEncoding>${encoding}</project.resources.sourceEncoding>
 		<java.version>14</java.version>
 		<unirest.version>3.6.01</unirest.version>
 	</properties>
