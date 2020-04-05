@@ -64,4 +64,23 @@ class StringUtilsTest {
 		assertThat(StringUtils.removeWhitespace("g eeks for ge eeks ")).isEqualTo("geeksforgeeeks");
 	}
 
+	@ParameterizedTest
+	@MethodSource("paramsMatchingParenthesis")
+	void testMatchingParenthesis(final String s, final boolean matchingParenthesis) throws Exception {
+		assertThat(StringUtils.matchingParenthesis(s)).isEqualTo(matchingParenthesis);
+	}
+
+	static Stream<Arguments> paramsMatchingParenthesis() {
+		return Stream.of( //
+				Arguments.of("", true), //
+				Arguments.of("()", true), //
+				Arguments.of("([])", true), //
+				Arguments.of("(", false), //
+				Arguments.of(")", false), //
+				Arguments.of("(((", false), //
+				Arguments.of(")))", false), //
+				Arguments.of("([({})])", true), //
+				Arguments.of("([({}))", false)); //
+	}
+
 }

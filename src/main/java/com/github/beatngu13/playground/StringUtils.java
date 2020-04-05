@@ -3,6 +3,7 @@ package com.github.beatngu13.playground;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
+import java.util.Stack;
 
 public class StringUtils {
 
@@ -58,6 +59,47 @@ public class StringUtils {
 				.filter(c -> !Character.isWhitespace(c)) //
 				.collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append) //
 				.toString();
+	}
+
+	public static boolean matchingParenthesis(final String s) {
+		final Stack<Character> parenthesis = new Stack<>();
+		for (final char c : s.toCharArray()) {
+			if (isOpeningParenthesis(c)) {
+				parenthesis.push(c);
+			} else {
+				if (parenthesis.isEmpty()) {
+					return false;
+				}
+				if (!matchingParenthesis(parenthesis.pop(), c)) {
+					return false;
+				}
+			}
+		}
+		return parenthesis.isEmpty();
+	}
+
+	private static boolean isOpeningParenthesis(final char c) {
+		switch (c) {
+		case '(':
+		case '[':
+		case '{':
+			return true;
+		default:
+			return false;
+		}
+	}
+
+	private static boolean matchingParenthesis(final char left, final char right) {
+		if (left == '(' && right == ')') {
+			return true;
+		}
+		if (left == '[' && right == ']') {
+			return true;
+		}
+		if (left == '{' && right == '}') {
+			return true;
+		}
+		return false;
 	}
 
 }
