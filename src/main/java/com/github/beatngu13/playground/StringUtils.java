@@ -42,16 +42,10 @@ public class StringUtils {
 	}
 
 	private static boolean isVowel(final char c) {
-		switch (c) {
-		case 'a':
-		case 'e':
-		case 'i':
-		case 'o':
-		case 'u':
-			return true;
-		default:
-			return false;
-		}
+		return switch (c) {
+		case 'a', 'e', 'i', 'o', 'u' -> true;
+		default -> false;
+		};
 	}
 
 	public static String removeWhitespace(final String s) {
@@ -79,14 +73,10 @@ public class StringUtils {
 	}
 
 	private static boolean isOpeningParenthesis(final char c) {
-		switch (c) {
-		case '(':
-		case '[':
-		case '{':
-			return true;
-		default:
-			return false;
-		}
+		return switch (c) {
+		case '(', '[', '{' -> true;
+		default -> false;
+		};
 	}
 
 	private static boolean matchingParenthesis(final char left, final char right) {
