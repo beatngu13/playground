@@ -7,7 +7,7 @@ import java.util.Set;
 public class StringUtils {
 
 	public static boolean isUnique(final String s) {
-		return s.chars().distinct().count() == s.length();
+		return s.codePoints().distinct().count() == s.length();
 	}
 
 	public static boolean isPalindrome(final String s) {
@@ -34,7 +34,7 @@ public class StringUtils {
 
 	public static long countVowels(final String s) {
 		return s.toLowerCase() //
-				.chars() //
+				.codePoints() //
 				.mapToObj(c -> (char) c) //
 				.filter(StringUtils::isVowel) //
 				.count();
@@ -54,7 +54,7 @@ public class StringUtils {
 	}
 
 	public static String removeWhitespace(final String s) {
-		return s.chars() //
+		return s.codePoints() //
 				.filter(c -> !Character.isWhitespace(c)) //
 				.collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append) //
 				.toString();
