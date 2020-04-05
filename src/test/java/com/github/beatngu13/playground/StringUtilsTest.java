@@ -48,6 +48,13 @@ class StringUtilsTest {
 	}
 
 	@Test
+	void testFirstRecurringChar() throws Exception {
+		assertThat(StringUtils.firstRecurringChar("abca")).hasValue('a');
+		assertThat(StringUtils.firstRecurringChar("bcaba")).hasValue('b');
+		assertThat(StringUtils.firstRecurringChar("abc")).isNotPresent();
+	}
+
+	@Test
 	void testCountVowels() throws Exception {
 		assertThat(StringUtils.countVowels("I want to know the number of vowels in this string.")).isEqualTo(13L);
 	}

@@ -1,5 +1,9 @@
 package com.github.beatngu13.playground;
 
+import java.util.HashSet;
+import java.util.Optional;
+import java.util.Set;
+
 public class StringUtils {
 
 	public static boolean isUnique(final String s) {
@@ -16,6 +20,16 @@ public class StringUtils {
 			}
 		}
 		return true;
+	}
+
+	public static Optional<Character> firstRecurringChar(final String s) {
+		final Set<Character> chars = new HashSet<>();
+		for (final char c : s.toCharArray()) {
+			if (!chars.add(c)) {
+				return Optional.of(c);
+			}
+		}
+		return Optional.empty();
 	}
 
 	public static long countVowels(final String s) {
