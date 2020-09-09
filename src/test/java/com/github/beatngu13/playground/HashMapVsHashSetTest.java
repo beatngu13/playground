@@ -13,7 +13,7 @@ class HashMapVsHashSetTest {
 
 	@Test
 	void test() throws Exception {
-		// Use deprecated ctor two circumvent caching.
+		// Use deprecated ctor to circumvent caching.
 		final Integer first = new Integer(1);
 		final Integer second = new Integer(1);
 
