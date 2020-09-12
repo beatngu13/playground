@@ -1,13 +1,13 @@
 package com.github.beatngu13.playground;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class HashMapVsHashSetTest {
 
@@ -32,11 +32,11 @@ class HashMapVsHashSetTest {
 
 		// According to Javadoc, first should not be replaced ("set unchanged").
 		assertThat(set).first().isSameAs(first);
-		
+
 		// According to Javadoc, first should be replaced ("old value replaced").
 		assertThat(map.keySet()).first().isSameAs(first);
 		assertThat(map.values()).first().isSameAs(second);
-		
+
 		// Although HashSet internally uses a HashMap, this works because keys (not values) are not replaced.
 	}
 

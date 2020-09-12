@@ -1,10 +1,9 @@
 package com.github.beatngu13.playground;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
+import com.github.beatngu13.playground.BinaryTreePuzzles.Node;
 import org.junit.jupiter.api.Test;
 
-import com.github.beatngu13.playground.BinaryTreePuzzles.Node;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class BinaryTreePuzzlesTest {
 

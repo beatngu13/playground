@@ -1,13 +1,12 @@
 package com.github.beatngu13.playground;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import com.github.beatngu13.playground.MathUtils.Pair;
+import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
 import java.util.List;
 
-import org.junit.jupiter.api.Test;
-
-import com.github.beatngu13.playground.MathUtils.Pair;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class MathUtilsTest {
 

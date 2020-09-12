@@ -1,7 +1,6 @@
 package com.github.beatngu13.playground;
 
 import com.google.gson.annotations.SerializedName;
-
 import kong.unirest.HttpResponse;
 import kong.unirest.JsonNode;
 import kong.unirest.Unirest;

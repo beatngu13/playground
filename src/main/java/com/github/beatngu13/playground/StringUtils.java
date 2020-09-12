@@ -43,8 +43,8 @@ public class StringUtils {
 
 	private static boolean isVowel(final char c) {
 		return switch (c) {
-		case 'a', 'e', 'i', 'o', 'u' -> true;
-		default -> false;
+			case 'a', 'e', 'i', 'o', 'u' -> true;
+			default -> false;
 		};
 	}
 
@@ -74,8 +74,8 @@ public class StringUtils {
 
 	private static boolean isOpeningParenthesis(final char c) {
 		return switch (c) {
-		case '(', '[', '{' -> true;
-		default -> false;
+			case '(', '[', '{' -> true;
+			default -> false;
 		};
 	}
 
