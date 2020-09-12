@@ -1,4 +1,4 @@
-package com.github.beatngu13.playground;
+package com.github.beatngu13.playground.jsfel;
 
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +12,7 @@ class JsfElParserTest {
 
 	@Test
 	void test() throws Exception {
-		Path xhtml = Paths.get(getClass().getResource("/example.xhtml").toURI());
+		Path xhtml = Paths.get(getClass().getResource("/valid.xhtml").toURI());
 
 		List<String> expressions = JsfElParser.parse(xhtml);
 

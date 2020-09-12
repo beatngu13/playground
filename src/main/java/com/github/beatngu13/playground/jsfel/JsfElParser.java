@@ -1,4 +1,4 @@
-package com.github.beatngu13.playground;
+package com.github.beatngu13.playground.jsfel;
 
 import java.io.IOException;
 import java.io.UncheckedIOException;
