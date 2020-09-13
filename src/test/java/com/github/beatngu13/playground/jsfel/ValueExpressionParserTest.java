@@ -8,15 +8,15 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class JsfElParserTest {
+class ValueExpressionParserTest {
 
 	@Test
 	void test() throws Exception {
 		Path xhtml = Paths.get(getClass().getResource("/valid.xhtml").toURI());
 
-		List<String> expressions = JsfElParser.parse(xhtml);
+		List<String> expressions = ValueExpressionParser.parse(xhtml);
 
-		assertThat(expressions).containsExactly("#{helloBean.name}");
+		assertThat(expressions).containsExactly("helloBean.name");
 	}
 
 }
