@@ -11,7 +11,7 @@
         <project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
         <project.resources.sourceEncoding>${encoding}</project.resources.sourceEncoding>
         <java.version>14</java.version>
-        <unirest.version>3.11.00</unirest.version>
+        <unirest.version>3.11.01</unirest.version>
     </properties>
 
     <dependencies>
