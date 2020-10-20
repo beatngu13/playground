@@ -12,7 +12,20 @@
         <project.resources.sourceEncoding>${encoding}</project.resources.sourceEncoding>
         <java.version>14</java.version>
         <unirest.version>3.11.02</unirest.version>
+        <junit.jupiter.version>5.7.0</junit.jupiter.version>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.junit</groupId>
+                <artifactId>junit-bom</artifactId>
+                <version>${junit.jupiter.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
         <dependency>
@@ -38,7 +51,14 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
-            <version>5.7.0</version>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit-pioneer</groupId>
+            <artifactId>junit-pioneer</artifactId>
+            <version>1.0.0</version>
             <scope>test</scope>
         </dependency>
 
