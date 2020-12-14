@@ -11,7 +11,7 @@
         <project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
         <project.resources.sourceEncoding>${encoding}</project.resources.sourceEncoding>
         <java.version>14</java.version>
-        <unirest.version>3.11.05</unirest.version>
+        <unirest.version>3.11.06</unirest.version>
         <junit.jupiter.version>5.7.0</junit.jupiter.version>
     </properties>
 
