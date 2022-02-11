@@ -1,4 +1,4 @@
-package com.github.beatngu13.playground;
+package com.github.beatngu13.playground.puzzles;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;

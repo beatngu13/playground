@@ -1,6 +1,6 @@
-package com.github.beatngu13.playground;
+package com.github.beatngu13.playground.puzzles;
 
-import com.github.beatngu13.playground.MathUtils.Pair;
+import com.github.beatngu13.playground.puzzles.MathUtils.Pair;
 import org.junit.jupiter.api.Test;
 
 import java.util.Collections;

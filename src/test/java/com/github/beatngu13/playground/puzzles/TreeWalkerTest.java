@@ -1,6 +1,6 @@
-package com.github.beatngu13.playground;
+package com.github.beatngu13.playground.puzzles;
 
-import com.github.beatngu13.playground.TreeWalker.Node;
+import com.github.beatngu13.playground.puzzles.TreeWalker.Node;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

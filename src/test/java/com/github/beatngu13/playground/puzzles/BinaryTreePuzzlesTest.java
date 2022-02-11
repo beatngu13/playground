@@ -1,6 +1,6 @@
-package com.github.beatngu13.playground;
+package com.github.beatngu13.playground.puzzles;
 
-import com.github.beatngu13.playground.BinaryTreePuzzles.Node;
+import com.github.beatngu13.playground.puzzles.BinaryTreePuzzles.Node;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
