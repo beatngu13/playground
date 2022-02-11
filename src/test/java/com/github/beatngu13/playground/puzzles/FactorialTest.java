@@ -19,13 +19,13 @@ class FactorialTest {
 	}
 
 	static Stream<Arguments> params() {
-		return Stream.of( //
-				Arguments.of(-1, 1L), //
-				Arguments.of(0, 1L), //
-				Arguments.of(1, 1L), //
-				Arguments.of(2, 2L), //
-				Arguments.of(3, 6L), //
-				Arguments.of(4, 24L), //
+		return Stream.of(
+				Arguments.of(-1, 1L),
+				Arguments.of(0, 1L),
+				Arguments.of(1, 1L),
+				Arguments.of(2, 2L),
+				Arguments.of(3, 6L),
+				Arguments.of(4, 24L),
 				Arguments.of(5, 120L));
 	}
 

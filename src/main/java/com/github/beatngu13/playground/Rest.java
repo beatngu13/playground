@@ -30,8 +30,8 @@ public class Rest {
 	}
 
 	private static void jsonResponse() {
-		HttpResponse<JsonNode> response = Unirest.get("https://httpbin.org/uuid") //
-				.accept("application/json") //
+		HttpResponse<JsonNode> response = Unirest.get("https://httpbin.org/uuid")
+				.accept("application/json")
 				.asJson();
 		System.out.println(response.getStatus());
 		System.out.println(response.getHeaders());
@@ -41,8 +41,8 @@ public class Rest {
 	}
 
 	private static void objectResponse() {
-		HttpResponse<UUID> getResponse = Unirest.get("https://httpbin.org/uuid") //
-				.accept("application/json") //
+		HttpResponse<UUID> getResponse = Unirest.get("https://httpbin.org/uuid")
+				.accept("application/json")
 				.asObject(UUID.class);
 
 		UUID uuid = getResponse.getBody();

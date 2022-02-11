@@ -17,13 +17,13 @@ class FibonacciTest {
 	}
 
 	static Stream<Arguments> params() {
-		return Stream.of( //
-				Arguments.of(-1, 1L), //
-				Arguments.of(0, 1L), //
-				Arguments.of(1, 1L), //
-				Arguments.of(2, 1L), //
-				Arguments.of(3, 2L), //
-				Arguments.of(4, 3L), //
+		return Stream.of(
+				Arguments.of(-1, 1L),
+				Arguments.of(0, 1L),
+				Arguments.of(1, 1L),
+				Arguments.of(2, 1L),
+				Arguments.of(3, 2L),
+				Arguments.of(4, 3L),
 				Arguments.of(5, 5L));
 	}
 

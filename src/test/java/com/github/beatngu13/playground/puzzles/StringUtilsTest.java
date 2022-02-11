@@ -18,15 +18,15 @@ class StringUtilsTest {
 	}
 
 	static Stream<Arguments> paramsIsUnique() {
-		return Stream.of( //
-				Arguments.of("", true), //
-				Arguments.of(" ", true), //
-				Arguments.of("a", true), //
-				Arguments.of("ab", true), //
-				Arguments.of("aa", false), //
-				Arguments.of("aba", false), //
-				Arguments.of("abc", true), //
-				Arguments.of("abcba", false)); //
+		return Stream.of(
+				Arguments.of("", true),
+				Arguments.of(" ", true),
+				Arguments.of("a", true),
+				Arguments.of("ab", true),
+				Arguments.of("aa", false),
+				Arguments.of("aba", false),
+				Arguments.of("abc", true),
+				Arguments.of("abcba", false));
 	}
 
 	@ParameterizedTest
@@ -36,15 +36,15 @@ class StringUtilsTest {
 	}
 
 	static Stream<Arguments> paramsIsPalindrome() {
-		return Stream.of( //
-				Arguments.of("", true), //
-				Arguments.of(" ", true), //
-				Arguments.of("a", true), //
-				Arguments.of("ab", false), //
-				Arguments.of("aa", true), //
-				Arguments.of("aba", true), //
-				Arguments.of("abc", false), //
-				Arguments.of("abcba", true)); //
+		return Stream.of(
+				Arguments.of("", true),
+				Arguments.of(" ", true),
+				Arguments.of("a", true),
+				Arguments.of("ab", false),
+				Arguments.of("aa", true),
+				Arguments.of("aba", true),
+				Arguments.of("abc", false),
+				Arguments.of("abcba", true));
 	}
 
 	@Test
@@ -71,16 +71,16 @@ class StringUtilsTest {
 	}
 
 	static Stream<Arguments> paramsMatchingParenthesis() {
-		return Stream.of( //
-				Arguments.of("", true), //
-				Arguments.of("()", true), //
-				Arguments.of("([])", true), //
-				Arguments.of("(", false), //
-				Arguments.of(")", false), //
-				Arguments.of("(((", false), //
-				Arguments.of(")))", false), //
-				Arguments.of("([({})])", true), //
-				Arguments.of("([({}))", false)); //
+		return Stream.of(
+				Arguments.of("", true),
+				Arguments.of("()", true),
+				Arguments.of("([])", true),
+				Arguments.of("(", false),
+				Arguments.of(")", false),
+				Arguments.of("(((", false),
+				Arguments.of(")))", false),
+				Arguments.of("([({})])", true),
+				Arguments.of("([({}))", false));
 	}
 
 }

@@ -34,10 +34,10 @@ public class StringUtils {
 	}
 
 	public static long countVowels(String s) {
-		return s.toLowerCase() //
-				.codePoints() //
-				.mapToObj(c -> (char) c) //
-				.filter(StringUtils::isVowel) //
+		return s.toLowerCase()
+				.codePoints()
+				.mapToObj(c -> (char) c)
+				.filter(StringUtils::isVowel)
 				.count();
 	}
 
@@ -49,9 +49,9 @@ public class StringUtils {
 	}
 
 	public static String removeWhitespace(String s) {
-		return s.codePoints() //
-				.filter(c -> !Character.isWhitespace(c)) //
-				.collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append) //
+		return s.codePoints()
+				.filter(c -> !Character.isWhitespace(c))
+				.collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
 				.toString();
 	}
 
