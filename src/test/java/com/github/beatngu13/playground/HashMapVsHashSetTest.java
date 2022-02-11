@@ -4,8 +4,6 @@ import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -14,24 +12,25 @@ class HashMapVsHashSetTest {
 	@Test
 	void test() {
 		// Use deprecated ctor to circumvent caching.
-		Integer first = new Integer(1);
-		Integer second = new Integer(1);
+		var first = new Integer(1);
+		var second = new Integer(1);
 
-		assertThat(first).isNotSameAs(second);
-		assertThat(first).isEqualTo(second);
+		assertThat(first)
+				.isNotSameAs(second)
+				.isEqualTo(second);
 
-		// "If this set already contains the element, the call leaves the set unchanged and returns false."
-		Set<Integer> set = new HashSet<>();
+		// Javadoc: "If this set already contains the element, the call leaves the set unchanged and returns false."
+		var set = new HashSet<>();
 		assertThat(set.add(first)).isTrue();
 		assertThat(set.add(second)).isFalse();
 
-		// "If the map previously contained a mapping for the key, the old value is replaced by the specified value."
-		Map<Integer, Integer> map = new HashMap<>();
-		assertThat(map.put(first, first)).isNull();
-		assertThat(map.put(second, second)).isSameAs(first);
-
 		// According to Javadoc, first should not be replaced ("set unchanged").
 		assertThat(set).first().isSameAs(first);
+
+		// Javadoc: "If the map previously contained a mapping for the key, the old value is replaced by the specified value."
+		var map = new HashMap<>();
+		assertThat(map.put(first, first)).isNull();
+		assertThat(map.put(second, second)).isSameAs(first);
 
 		// According to Javadoc, first should be replaced ("old value replaced").
 		assertThat(map.keySet()).first().isSameAs(first);
