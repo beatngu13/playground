@@ -30,7 +30,7 @@ class FactorialTest {
 	}
 
 	@Test
-	void testOverflow() throws Exception {
+	void testOverflow() {
 		assertThatThrownBy(() -> Factorial.of(21)).isInstanceOf(ArithmeticException.class);
 	}
 

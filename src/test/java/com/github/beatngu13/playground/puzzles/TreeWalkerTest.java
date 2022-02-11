@@ -13,7 +13,7 @@ class TreeWalkerTest {
 	Node root;
 
 	@BeforeEach
-	void setUp() throws Exception {
+	void setUp() {
 		Node node11 = new Node("11", List.of());
 		Node node1 = new Node("1", List.of(node11));
 		Node node211 = new Node("211", List.of());
@@ -24,12 +24,12 @@ class TreeWalkerTest {
 	}
 
 	@Test
-	void testDepthFirst() throws Exception {
+	void testDepthFirst() {
 		assertThat(TreeWalker.listNamesDepthFirst(root)).containsExactly("0", "1", "11", "2", "21", "211", "3");
 	}
 
 	@Test
-	void testBreadthFirst() throws Exception {
+	void testBreadthFirst() {
 		assertThat(TreeWalker.listNamesBreadthFirst(root)).containsExactly("0", "1", "2", "3", "11", "21", "211");
 	}
 

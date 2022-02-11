@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class HashMapVsHashSetTest {
 
 	@Test
-	void test() throws Exception {
+	void test() {
 		// Use deprecated ctor to circumvent caching.
 		Integer first = new Integer(1);
 		Integer second = new Integer(1);

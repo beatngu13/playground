@@ -48,25 +48,25 @@ class StringUtilsTest {
 	}
 
 	@Test
-	void testFirstRecurringChar() throws Exception {
+	void testFirstRecurringChar() {
 		assertThat(StringUtils.firstRecurringChar("abca")).hasValue('a');
 		assertThat(StringUtils.firstRecurringChar("bcaba")).hasValue('b');
 		assertThat(StringUtils.firstRecurringChar("abc")).isNotPresent();
 	}
 
 	@Test
-	void testCountVowels() throws Exception {
+	void testCountVowels() {
 		assertThat(StringUtils.countVowels("I want to know the number of vowels in this string.")).isEqualTo(13L);
 	}
 
 	@Test
-	void testRemoveWhitespace() throws Exception {
+	void testRemoveWhitespace() {
 		assertThat(StringUtils.removeWhitespace("g eeks for ge eeks ")).isEqualTo("geeksforgeeeks");
 	}
 
 	@ParameterizedTest
 	@MethodSource("paramsMatchingParenthesis")
-	void testMatchingParenthesis(String s, boolean matchingParenthesis) throws Exception {
+	void testMatchingParenthesis(String s, boolean matchingParenthesis) {
 		assertThat(StringUtils.matchingParenthesis(s)).isEqualTo(matchingParenthesis);
 	}
 
