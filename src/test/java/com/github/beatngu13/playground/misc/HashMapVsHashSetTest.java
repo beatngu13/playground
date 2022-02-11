@@ -1,4 +1,4 @@
-package com.github.beatngu13.playground;
+package com.github.beatngu13.playground.misc;
 
 import org.junit.jupiter.api.Test;
 
