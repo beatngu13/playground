@@ -7,6 +7,7 @@ import kong.unirest.Unirest;
 
 public class Rest {
 
+	// GSON doesn't support records yet: https://github.com/google/gson/issues/1794
 	private static class UUID {
 
 		@SerializedName(value = "uuid")

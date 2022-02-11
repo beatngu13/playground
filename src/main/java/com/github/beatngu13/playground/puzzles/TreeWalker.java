@@ -7,31 +7,14 @@ import java.util.Queue;
 
 public class TreeWalker {
 
-	public static class Node {
-
-		private final String name;
-		private final List<Node> children;
-
-		public Node(String name, List<Node> children) {
-			this.name = name;
-			this.children = children;
-		}
-
-		public String getName() {
-			return name;
-		}
-
-		public List<Node> getChildren() {
-			return children;
-		}
-
+	public static record Node(String name, List<Node> children) {
 	}
 
 	public static List<String> listNamesDepthFirst(Node root) {
 		List<String> names = new ArrayList<>();
-		names.add(root.getName());
+		names.add(root.name());
 
-		for (Node node : root.getChildren()) {
+		for (Node node : root.children()) {
 			names.addAll(listNamesDepthFirst(node));
 		}
 
@@ -45,8 +28,8 @@ public class TreeWalker {
 
 		while (!queue.isEmpty()) {
 			Node node = queue.poll();
-			names.add(node.getName());
-			queue.addAll(node.getChildren());
+			names.add(node.name());
+			queue.addAll(node.children());
 		}
 
 		return names;

@@ -7,23 +7,7 @@ import java.util.Queue;
 
 public class BinaryTreePuzzles {
 
-	public static class Node {
-
-		public final int value;
-		public final Node leftChild;
-		public final Node rightChild;
-
-		public Node(int value, Node leftChild, Node rightChild) {
-			this.value = value;
-			this.leftChild = leftChild;
-			this.rightChild = rightChild;
-		}
-
-		@Override
-		public String toString() {
-			return Node.class.getSimpleName() + "(" + value + ")";
-		}
-
+	public static record Node(int value, Node leftChild, Node rightChild) {
 	}
 
 	public static List<Double> getLevelAverages(Node root) {
@@ -36,14 +20,14 @@ public class BinaryTreePuzzles {
 			List<Node> nextLevelNodes = new ArrayList<>();
 
 			for (Node node : levelNodes) {
-				sum += node.value;
+				sum += node.value();
 
-				if (node.leftChild != null) {
-					nextLevelNodes.add(node.leftChild);
+				if (node.leftChild() != null) {
+					nextLevelNodes.add(node.leftChild());
 				}
 
-				if (node.rightChild != null) {
-					nextLevelNodes.add(node.rightChild);
+				if (node.rightChild() != null) {
+					nextLevelNodes.add(node.rightChild());
 				}
 			}
 
@@ -67,16 +51,16 @@ public class BinaryTreePuzzles {
 				return node;
 			}
 
-			if (node.value == searchValue) {
+			if (node.value() == searchValue) {
 				found = true;
 			}
 
-			if (node.leftChild != null) {
-				todo.add(node.leftChild);
+			if (node.leftChild() != null) {
+				todo.add(node.leftChild());
 			}
 
-			if (node.rightChild != null) {
-				todo.add(node.rightChild);
+			if (node.rightChild() != null) {
+				todo.add(node.rightChild());
 			}
 		}
 
