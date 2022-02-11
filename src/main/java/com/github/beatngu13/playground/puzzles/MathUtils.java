@@ -49,7 +49,7 @@ public class MathUtils {
 		for (Integer i : data) {
 			int complement = sum - i;
 			if (seen.contains(complement)) {
-				return Optional.of(new Pair<Integer>(complement, i));
+				return Optional.of(new Pair<>(complement, i));
 			}
 			seen.add(i);
 		}

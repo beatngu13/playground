@@ -21,12 +21,12 @@ class HashMapVsHashSetTest {
 		assertThat(first).isEqualTo(second);
 
 		// "If this set already contains the element, the call leaves the set unchanged and returns false."
-		Set<Integer> set = new HashSet<Integer>();
+		Set<Integer> set = new HashSet<>();
 		assertThat(set.add(first)).isTrue();
 		assertThat(set.add(second)).isFalse();
 
 		// "If the map previously contained a mapping for the key, the old value is replaced by the specified value."
-		Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+		Map<Integer, Integer> map = new HashMap<>();
 		assertThat(map.put(first, first)).isNull();
 		assertThat(map.put(second, second)).isSameAs(first);
 
