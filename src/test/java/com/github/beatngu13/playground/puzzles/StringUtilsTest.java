@@ -13,7 +13,7 @@ class StringUtilsTest {
 
 	@ParameterizedTest
 	@MethodSource("paramsIsUnique")
-	void testIsUnique(final String s, final boolean isUnique) {
+	void testIsUnique(String s, boolean isUnique) {
 		assertThat(StringUtils.isUnique(s)).isEqualTo(isUnique);
 	}
 
@@ -31,7 +31,7 @@ class StringUtilsTest {
 
 	@ParameterizedTest
 	@MethodSource("paramsIsPalindrome")
-	void testIsPalindrome(final String s, final boolean isPalindrome) {
+	void testIsPalindrome(String s, boolean isPalindrome) {
 		assertThat(StringUtils.isPalindrome(s)).isEqualTo(isPalindrome);
 	}
 
@@ -66,7 +66,7 @@ class StringUtilsTest {
 
 	@ParameterizedTest
 	@MethodSource("paramsMatchingParenthesis")
-	void testMatchingParenthesis(final String s, final boolean matchingParenthesis) throws Exception {
+	void testMatchingParenthesis(String s, boolean matchingParenthesis) throws Exception {
 		assertThat(StringUtils.matchingParenthesis(s)).isEqualTo(matchingParenthesis);
 	}
 

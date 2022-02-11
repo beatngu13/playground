@@ -13,14 +13,14 @@ public class MathUtils {
 		public T left;
 		public T right;
 
-		public Pair(final T left, final T right) {
+		public Pair(T left, T right) {
 			this.left = left;
 			this.right = right;
 		}
 
 		@Override
 		public int hashCode() {
-			final int prime = 31;
+			int prime = 31;
 			int result = 1;
 			result = prime * result + ((left == null) ? 0 : left.hashCode());
 			result = prime * result + ((right == null) ? 0 : right.hashCode());
@@ -28,7 +28,7 @@ public class MathUtils {
 		}
 
 		@Override
-		public boolean equals(final Object other) {
+		public boolean equals(Object other) {
 			if (other == null) {
 				return false;
 			}
@@ -38,16 +38,16 @@ public class MathUtils {
 			if (getClass() != other.getClass()) {
 				return false;
 			}
-			final Pair<?> otherPair = (Pair<?>) other;
+			Pair<?> otherPair = (Pair<?>) other;
 			return Objects.equals(left, otherPair.left) && Objects.equals(right, otherPair.right);
 		}
 
 	}
 
-	public static Optional<Pair<Integer>> getPairWithSum(final List<Integer> data, final int sum) {
-		final Set<Integer> seen = new HashSet<>();
-		for (final Integer i : data) {
-			final int complement = sum - i;
+	public static Optional<Pair<Integer>> getPairWithSum(List<Integer> data, int sum) {
+		Set<Integer> seen = new HashSet<>();
+		for (Integer i : data) {
+			int complement = sum - i;
 			if (seen.contains(complement)) {
 				return Optional.of(new Pair<Integer>(complement, i));
 			}

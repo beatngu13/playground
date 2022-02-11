@@ -13,7 +13,7 @@ public class BinaryTreePuzzles {
 		public final Node leftChild;
 		public final Node rightChild;
 
-		public Node(final int value, final Node leftChild, final Node rightChild) {
+		public Node(int value, Node leftChild, Node rightChild) {
 			this.value = value;
 			this.leftChild = leftChild;
 			this.rightChild = rightChild;
@@ -26,16 +26,16 @@ public class BinaryTreePuzzles {
 
 	}
 
-	public static List<Double> getLevelAverages(final Node root) {
-		final List<Double> avg = new ArrayList<>();
+	public static List<Double> getLevelAverages(Node root) {
+		List<Double> avg = new ArrayList<>();
 		List<Node> levelNodes = new ArrayList<>();
 		levelNodes.add(root);
 
 		while (!levelNodes.isEmpty()) {
 			int sum = 0;
-			final List<Node> nextLevelNodes = new ArrayList<>();
+			List<Node> nextLevelNodes = new ArrayList<>();
 
-			for (final Node node : levelNodes) {
+			for (Node node : levelNodes) {
 				sum += node.value;
 
 				if (node.leftChild != null) {
@@ -54,14 +54,14 @@ public class BinaryTreePuzzles {
 		return avg;
 	}
 
-	public static Node getNextSuccessor(final Node root, final int searchValue) {
-		final Queue<Node> todo = new ArrayDeque<>();
+	public static Node getNextSuccessor(Node root, int searchValue) {
+		Queue<Node> todo = new ArrayDeque<>();
 		todo.add(root);
 
 		boolean found = false;
 
 		while (!todo.isEmpty()) {
-			final Node node = todo.poll();
+			Node node = todo.poll();
 
 			if (found) {
 				return node;

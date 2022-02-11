@@ -4,7 +4,7 @@ import java.util.stream.LongStream;
 
 public class Factorial {
 
-	public static long of(final int n) {
+	public static long of(int n) {
 		return LongStream.rangeClosed(1L, n).reduce(1L, Math::multiplyExact);
 	}
 

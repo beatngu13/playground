@@ -13,7 +13,7 @@ public class Rest {
 		private final String value;
 
 		@SuppressWarnings("unused")
-		public UUID(final String value) {
+		public UUID(String value) {
 			this.value = value;
 		}
 
@@ -23,29 +23,29 @@ public class Rest {
 
 	}
 
-	public static void main(final String[] args) {
+	public static void main(String[] args) {
 		jsonResponse();
 		objectResponse();
 	}
 
 	private static void jsonResponse() {
-		final HttpResponse<JsonNode> response = Unirest.get("https://httpbin.org/uuid") //
+		HttpResponse<JsonNode> response = Unirest.get("https://httpbin.org/uuid") //
 				.accept("application/json") //
 				.asJson();
 		System.out.println(response.getStatus());
 		System.out.println(response.getHeaders());
 
-		final JsonNode json = response.getBody();
+		JsonNode json = response.getBody();
 		System.out.println(json.getObject().get("uuid"));
 	}
 
 	private static void objectResponse() {
-		final HttpResponse<UUID> getResponse = Unirest.get("https://httpbin.org/uuid") //
+		HttpResponse<UUID> getResponse = Unirest.get("https://httpbin.org/uuid") //
 				.accept("application/json") //
 				.asObject(UUID.class);
 
-		final UUID uuid = getResponse.getBody();
-		final String value = uuid.getValue();
+		UUID uuid = getResponse.getBody();
+		String value = uuid.getValue();
 		System.out.println(value);
 	}
 

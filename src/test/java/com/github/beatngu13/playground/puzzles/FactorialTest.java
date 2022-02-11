@@ -14,7 +14,7 @@ class FactorialTest {
 
 	@ParameterizedTest
 	@MethodSource("params")
-	void test(final int n, final long factorial) {
+	void test(int n, long factorial) {
 		assertThat(Factorial.of(n)).isEqualTo(factorial);
 	}
 

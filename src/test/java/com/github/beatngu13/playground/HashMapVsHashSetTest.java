@@ -14,19 +14,19 @@ class HashMapVsHashSetTest {
 	@Test
 	void test() throws Exception {
 		// Use deprecated ctor to circumvent caching.
-		final Integer first = new Integer(1);
-		final Integer second = new Integer(1);
+		Integer first = new Integer(1);
+		Integer second = new Integer(1);
 
 		assertThat(first).isNotSameAs(second);
 		assertThat(first).isEqualTo(second);
 
 		// "If this set already contains the element, the call leaves the set unchanged and returns false."
-		final Set<Integer> set = new HashSet<Integer>();
+		Set<Integer> set = new HashSet<Integer>();
 		assertThat(set.add(first)).isTrue();
 		assertThat(set.add(second)).isFalse();
 
 		// "If the map previously contained a mapping for the key, the old value is replaced by the specified value."
-		final Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+		Map<Integer, Integer> map = new HashMap<Integer, Integer>();
 		assertThat(map.put(first, first)).isNull();
 		assertThat(map.put(second, second)).isSameAs(first);
 

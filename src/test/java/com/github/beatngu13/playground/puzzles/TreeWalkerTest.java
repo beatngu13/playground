@@ -14,12 +14,12 @@ class TreeWalkerTest {
 
 	@BeforeEach
 	void setUp() throws Exception {
-		final Node node11 = new Node("11", List.of());
-		final Node node1 = new Node("1", List.of(node11));
-		final Node node211 = new Node("211", List.of());
-		final Node node21 = new Node("21", List.of(node211));
-		final Node node2 = new Node("2", List.of(node21));
-		final Node node3 = new Node("3", List.of());
+		Node node11 = new Node("11", List.of());
+		Node node1 = new Node("1", List.of(node11));
+		Node node211 = new Node("211", List.of());
+		Node node21 = new Node("21", List.of(node211));
+		Node node2 = new Node("2", List.of(node21));
+		Node node3 = new Node("3", List.of());
 		root = new Node("0", List.of(node1, node2, node3));
 	}
 

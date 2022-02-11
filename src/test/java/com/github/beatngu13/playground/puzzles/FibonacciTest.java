@@ -12,7 +12,7 @@ class FibonacciTest {
 
 	@ParameterizedTest
 	@MethodSource("params")
-	void test(final int n, final long fibonacci) {
+	void test(int n, long fibonacci) {
 		assertThat(Fibonacci.of(n)).isEqualTo(fibonacci);
 	}
 

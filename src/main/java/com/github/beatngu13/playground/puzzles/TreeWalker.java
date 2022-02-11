@@ -12,7 +12,7 @@ public class TreeWalker {
 		private final String name;
 		private final List<Node> children;
 
-		public Node(final String name, final List<Node> children) {
+		public Node(String name, List<Node> children) {
 			this.name = name;
 			this.children = children;
 		}
@@ -27,24 +27,24 @@ public class TreeWalker {
 
 	}
 
-	public static List<String> listNamesDepthFirst(final Node root) {
-		final List<String> names = new ArrayList<>();
+	public static List<String> listNamesDepthFirst(Node root) {
+		List<String> names = new ArrayList<>();
 		names.add(root.getName());
 
-		for (final Node node : root.getChildren()) {
+		for (Node node : root.getChildren()) {
 			names.addAll(listNamesDepthFirst(node));
 		}
 
 		return names;
 	}
 
-	public static List<String> listNamesBreadthFirst(final Node root) {
-		final List<String> names = new ArrayList<>();
-		final Queue<Node> queue = new ArrayDeque<>();
+	public static List<String> listNamesBreadthFirst(Node root) {
+		List<String> names = new ArrayList<>();
+		Queue<Node> queue = new ArrayDeque<>();
 		queue.add(root);
 
 		while (!queue.isEmpty()) {
-			final Node node = queue.poll();
+			Node node = queue.poll();
 			names.add(node.getName());
 			queue.addAll(node.getChildren());
 		}
