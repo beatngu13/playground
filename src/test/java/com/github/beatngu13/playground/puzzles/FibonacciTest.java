@@ -11,12 +11,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 class FibonacciTest {
 
 	@ParameterizedTest
-	@MethodSource("params")
+	@MethodSource
 	void test(int n, long fibonacci) {
 		assertThat(Fibonacci.of(n)).isEqualTo(fibonacci);
 	}
 
-	static Stream<Arguments> params() {
+	static Stream<Arguments> test() {
 		return Stream.of(
 				Arguments.of(-1, 1L),
 				Arguments.of(0, 1L),

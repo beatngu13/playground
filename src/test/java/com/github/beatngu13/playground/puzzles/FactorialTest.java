@@ -13,12 +13,12 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 class FactorialTest {
 
 	@ParameterizedTest
-	@MethodSource("params")
+	@MethodSource
 	void test(int n, long factorial) {
 		assertThat(Factorial.of(n)).isEqualTo(factorial);
 	}
 
-	static Stream<Arguments> params() {
+	static Stream<Arguments> test() {
 		return Stream.of(
 				Arguments.of(-1, 1L),
 				Arguments.of(0, 1L),

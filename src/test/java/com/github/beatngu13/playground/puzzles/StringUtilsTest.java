@@ -12,12 +12,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 class StringUtilsTest {
 
 	@ParameterizedTest
-	@MethodSource("paramsIsUnique")
+	@MethodSource
 	void testIsUnique(String s, boolean isUnique) {
 		assertThat(StringUtils.isUnique(s)).isEqualTo(isUnique);
 	}
 
-	static Stream<Arguments> paramsIsUnique() {
+	static Stream<Arguments> testIsUnique() {
 		return Stream.of(
 				Arguments.of("", true),
 				Arguments.of(" ", true),
@@ -30,12 +30,12 @@ class StringUtilsTest {
 	}
 
 	@ParameterizedTest
-	@MethodSource("paramsIsPalindrome")
+	@MethodSource
 	void testIsPalindrome(String s, boolean isPalindrome) {
 		assertThat(StringUtils.isPalindrome(s)).isEqualTo(isPalindrome);
 	}
 
-	static Stream<Arguments> paramsIsPalindrome() {
+	static Stream<Arguments> testIsPalindrome() {
 		return Stream.of(
 				Arguments.of("", true),
 				Arguments.of(" ", true),
@@ -65,12 +65,12 @@ class StringUtilsTest {
 	}
 
 	@ParameterizedTest
-	@MethodSource("paramsMatchingParenthesis")
+	@MethodSource
 	void testMatchingParenthesis(String s, boolean matchingParenthesis) {
 		assertThat(StringUtils.matchingParenthesis(s)).isEqualTo(matchingParenthesis);
 	}
 
-	static Stream<Arguments> paramsMatchingParenthesis() {
+	static Stream<Arguments> testMatchingParenthesis() {
 		return Stream.of(
 				Arguments.of("", true),
 				Arguments.of("()", true),
