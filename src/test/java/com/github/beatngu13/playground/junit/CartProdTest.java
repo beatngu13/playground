@@ -1,4 +1,4 @@
-package com.github.beatngu13.playground.pioneer;
+package com.github.beatngu13.playground.junit;
 
 import org.junitpioneer.jupiter.CartesianProductTest;
 
