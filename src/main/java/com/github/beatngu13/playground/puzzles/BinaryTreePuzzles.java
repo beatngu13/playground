@@ -7,7 +7,7 @@ import java.util.Queue;
 
 public class BinaryTreePuzzles {
 
-	public static record Node(int value, Node leftChild, Node rightChild) {
+	public record Node(int value, Node leftChild, Node rightChild) {
 	}
 
 	public static List<Double> getLevelAverages(Node root) {

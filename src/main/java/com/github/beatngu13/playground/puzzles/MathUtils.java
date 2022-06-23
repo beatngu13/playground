@@ -7,7 +7,7 @@ import java.util.Set;
 
 public class MathUtils {
 
-	public static record Pair<T extends Number>(T left, T right) {
+	public record Pair<T extends Number>(T left, T right) {
 	}
 
 	public static Optional<Pair<Integer>> getPairWithSum(List<Integer> data, int sum) {

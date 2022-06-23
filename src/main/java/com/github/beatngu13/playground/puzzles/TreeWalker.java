@@ -7,7 +7,7 @@ import java.util.Queue;
 
 public class TreeWalker {
 
-	public static record Node(String name, List<Node> children) {
+	public record Node(String name, List<Node> children) {
 	}
 
 	public static List<String> listNamesDepthFirst(Node root) {
