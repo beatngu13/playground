@@ -5,7 +5,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-// See: https://openjdk.org/jeps/420
+// See: https://openjdk.org/jeps/427
 class PatternMatchingForSwitchTest {
 
 	@ParameterizedTest
@@ -17,7 +17,7 @@ class PatternMatchingForSwitchTest {
 	void test(Integer x, Integer y, Integer z, String expected) {
 		String actual = switch (x) {
 			case 4 -> "foo";
-			case Integer i && y < i && i < z -> "bar";
+			case Integer i when y < i && i < z -> "bar";
 			default -> "baz";
 		};
 		assertThat(actual).isEqualTo(expected);
