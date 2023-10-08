@@ -7,21 +7,7 @@ import kong.unirest.Unirest;
 
 public class Rest {
 
-	// GSON doesn't support records yet: https://github.com/google/gson/issues/1794
-	private static class UUID {
-
-		@SerializedName(value = "uuid")
-		private final String value;
-
-		@SuppressWarnings("unused")
-		public UUID(String value) {
-			this.value = value;
-		}
-
-		public String getValue() {
-			return value;
-		}
-
+	record UUID(@SerializedName("uuid") String value) {
 	}
 
 	public static void main(String[] args) {
@@ -46,7 +32,7 @@ public class Rest {
 				.asObject(UUID.class);
 
 		UUID uuid = getResponse.getBody();
-		String value = uuid.getValue();
+		String value = uuid.value();
 		System.out.println(value);
 	}
 
