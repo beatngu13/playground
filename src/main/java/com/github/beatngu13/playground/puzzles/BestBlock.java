@@ -9,6 +9,8 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import static java.util.function.Predicate.not;
+
 // See: https://youtu.be/rw4s4M3hFfs
 public class BestBlock {
 
@@ -50,7 +52,7 @@ public class BestBlock {
 					.filter(r -> !block.pois().contains(r))
 					.collect(Collectors.toSet());
 			List<Block> otherBlocks = blocks.stream()
-					.filter(b -> !block.equals(b))
+					.filter(not(block::equals))
 					.toList();
 
 			for (Poi requiredPoi : remainingRequirements) {
