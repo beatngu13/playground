@@ -11,7 +11,7 @@
 		<project.resources.sourceEncoding>UTF-8</project.resources.sourceEncoding>
 		<java.version>21</java.version>
 		<unirest.version>3.14.5</unirest.version>
-		<hibernate.version>5.3.32.Final</hibernate.version>
+		<hibernate.version>6.3.1.Final</hibernate.version>
 		<junit.jupiter.version>5.10.1</junit.jupiter.version>
 	</properties>
 
