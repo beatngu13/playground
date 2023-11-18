@@ -1,9 +1,8 @@
 package com.github.beatngu13.playground.hibernate;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.boot.MetadataSources;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
 import org.hibernate.envers.AuditReaderFactory;
 import org.hibernate.envers.RevisionType;
 import org.junit.jupiter.api.AfterAll;
@@ -21,36 +20,29 @@ import static org.hibernate.envers.query.AuditEntity.id;
 @TestMethodOrder(OrderAnnotation.class)
 class EnversConditionalAuditingTest {
 
-	static SessionFactory sessionFactory;
+	static EntityManagerFactory entityManagerFactory;
 
 	@BeforeAll
 	static void setUpOnce() {
-		var standardServiceRegistry = new StandardServiceRegistryBuilder()
-				.configure()
-				.build();
-		var metadata = new MetadataSources(standardServiceRegistry)
-				.addAnnotatedClass(Book.class)
-				.getMetadataBuilder()
-				.build();
-		sessionFactory = metadata.buildSessionFactory();
+		entityManagerFactory = Persistence.createEntityManagerFactory("BookManagement");
 	}
 
 	@AfterAll
 	static void tearDownOnce() {
-		sessionFactory.close();
+		entityManagerFactory.close();
 	}
 
-	Session session;
+	EntityManager entityManager;
 
 	@BeforeEach
 	void setUp() {
-		session = sessionFactory.openSession();
-		session.beginTransaction();
+		entityManager = entityManagerFactory.createEntityManager();
+		entityManager.getTransaction().begin();
 	}
 
 	@AfterEach
 	void tearDown() {
-		session.getTransaction().commit();
+		entityManager.getTransaction().commit();
 	}
 
 	@Order(1)
@@ -59,13 +51,13 @@ class EnversConditionalAuditingTest {
 		var book = new Book();
 		book.setTitle("Some book");
 
-		session.persist(book);
+		entityManager.persist(book);
 	}
 
 	@Order(2)
 	@Test
 	void selectBook() {
-		var book = session.find(Book.class, 1L);
+		var book = entityManager.find(Book.class, 1L);
 
 		assertThat(book).isNotNull();
 	}
@@ -73,14 +65,14 @@ class EnversConditionalAuditingTest {
 	@Order(3)
 	@Test
 	void updateBook() {
-		var book = session.find(Book.class, 1L);
+		var book = entityManager.find(Book.class, 1L);
 		book.setTitle("Other book");
 	}
 
 	@Order(4)
 	@Test
 	void readAudit() {
-		var auditReader = AuditReaderFactory.get(session);
+		var auditReader = AuditReaderFactory.get(entityManager);
 		var resultList = auditReader.createQuery()
 				.forRevisionsOfEntity(Book.class, false, false)
 				.add(id().eq(1L))
