@@ -86,15 +86,14 @@ class EnversConditionalAuditingTest {
 		assertThat(resultList).hasSize(1);
 
 		Object[] result = (Object[]) resultList.getFirst();
+		assertThat(result).hasSize(3);
 
-		var book = (Book) result[0];
-		assertThat(book.getTitle()).isEqualTo("Other book");
-
-		var defaultRevisionEntity = (DefaultRevisionEntity) result[1];
-		assertThat(defaultRevisionEntity.getId()).isEqualTo(1);
-
-		var refType = (RevisionType) result[2];
-		assertThat(refType).isEqualTo(RevisionType.MOD);
+		assertThat(result[0]).isInstanceOfSatisfying(Book.class,
+				book -> assertThat(book.getTitle()).isEqualTo("Other book"));
+		assertThat(result[1]).isInstanceOfSatisfying(DefaultRevisionEntity.class,
+				defaultRevisionEntity -> assertThat(defaultRevisionEntity.getId()).isEqualTo(1));
+		assertThat(result[2]).isInstanceOfSatisfying(RevisionType.class,
+				revisionType -> assertThat(revisionType).isEqualTo(RevisionType.MOD));
 	}
 
 }
