@@ -1,15 +1,9 @@
 package com.github.beatngu13.playground.hibernate;
 
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Persistence;
 import org.hibernate.envers.AuditReaderFactory;
 import org.hibernate.envers.DefaultRevisionEntity;
 import org.hibernate.envers.RevisionType;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -18,37 +12,13 @@ import org.junit.jupiter.api.TestMethodOrder;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hibernate.envers.query.AuditEntity.id;
 
+@Jpa(persistenceUnitName = "BookManagement")
 @TestMethodOrder(OrderAnnotation.class)
 class EnversConditionalAuditingTest {
 
-	static EntityManagerFactory entityManagerFactory;
-
-	@BeforeAll
-	static void setUpOnce() {
-		entityManagerFactory = Persistence.createEntityManagerFactory("BookManagement");
-	}
-
-	@AfterAll
-	static void tearDownOnce() {
-		entityManagerFactory.close();
-	}
-
-	EntityManager entityManager;
-
-	@BeforeEach
-	void setUp() {
-		entityManager = entityManagerFactory.createEntityManager();
-		entityManager.getTransaction().begin();
-	}
-
-	@AfterEach
-	void tearDown() {
-		entityManager.getTransaction().commit();
-	}
-
 	@Order(1)
 	@Test
-	void insertBook() {
+	void insertBook(EntityManager entityManager) {
 		var book = new Book();
 		book.setTitle("Some book");
 
@@ -57,7 +27,7 @@ class EnversConditionalAuditingTest {
 
 	@Order(2)
 	@Test
-	void selectBook() {
+	void selectBook(EntityManager entityManager) {
 		var book = entityManager.find(Book.class, 1L);
 
 		assertThat(book).isNotNull();
@@ -65,14 +35,14 @@ class EnversConditionalAuditingTest {
 
 	@Order(3)
 	@Test
-	void updateBook() {
+	void updateBook(EntityManager entityManager) {
 		var book = entityManager.find(Book.class, 1L);
 		book.setTitle("Other book");
 	}
 
 	@Order(4)
 	@Test
-	void readAudit() {
+	void readAudit(EntityManager entityManager) {
 		var auditReader = AuditReaderFactory.get(entityManager);
 		var resultList = auditReader.createQuery()
 				.forRevisionsOfEntity(Book.class, false, false)
