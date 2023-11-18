@@ -4,6 +4,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import org.hibernate.envers.AuditReaderFactory;
+import org.hibernate.envers.DefaultRevisionEntity;
 import org.hibernate.envers.RevisionType;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -88,6 +89,9 @@ class EnversConditionalAuditingTest {
 
 		var book = (Book) result[0];
 		assertThat(book.getTitle()).isEqualTo("Other book");
+
+		var defaultRevisionEntity = (DefaultRevisionEntity) result[1];
+		assertThat(defaultRevisionEntity.getId()).isEqualTo(1);
 
 		var refType = (RevisionType) result[2];
 		assertThat(refType).isEqualTo(RevisionType.MOD);
