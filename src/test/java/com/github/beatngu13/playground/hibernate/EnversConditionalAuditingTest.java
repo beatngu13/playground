@@ -78,7 +78,10 @@ class EnversConditionalAuditingTest {
 				.add(id().eq(1L))
 				.getResultList();
 
-		// If we wouldn't use conditional auditing, there would be two revision: one for ADD (test 1) and one for MOD (test 2).
+		/*
+		 * If we wouldn't use conditional auditing, there would be two revisions: one for RevisionType.ADD (insertBook)
+		 * and one for RevisionType.MOD (updateBook).
+		 */
 		assertThat(resultList).hasSize(1);
 
 		Object[] result = (Object[]) resultList.getFirst();
