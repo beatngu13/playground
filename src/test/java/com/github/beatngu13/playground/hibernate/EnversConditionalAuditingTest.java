@@ -8,10 +8,12 @@ import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+import org.junitpioneer.jupiter.DisableIfTestFails;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hibernate.envers.query.AuditEntity.id;
 
+@DisableIfTestFails
 @Jpa(persistenceUnitName = "BookManagement")
 @TestMethodOrder(OrderAnnotation.class)
 class EnversConditionalAuditingTest {
