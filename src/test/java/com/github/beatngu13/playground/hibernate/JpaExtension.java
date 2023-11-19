@@ -11,11 +11,12 @@ import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.ExtensionContext.Namespace;
 import org.junit.jupiter.api.extension.ParameterContext;
 import org.junit.jupiter.api.extension.ParameterResolutionException;
-import org.junit.jupiter.api.extension.ParameterResolver;
+import org.junit.jupiter.api.extension.support.TypeBasedParameterResolver;
 import org.junit.platform.commons.PreconditionViolationException;
 import org.junit.platform.commons.support.AnnotationSupport;
 
-public class JpaExtension implements BeforeAllCallback, AfterAllCallback, BeforeEachCallback, AfterEachCallback, ParameterResolver {
+public class JpaExtension extends TypeBasedParameterResolver<EntityManager>
+		implements BeforeAllCallback, AfterAllCallback, BeforeEachCallback, AfterEachCallback {
 
 	private static final Namespace NAMESPACE = Namespace.create(JpaExtension.class);
 
@@ -55,12 +56,7 @@ public class JpaExtension implements BeforeAllCallback, AfterAllCallback, Before
 	}
 
 	@Override
-	public boolean supportsParameter(ParameterContext parameterContext, ExtensionContext extensionContext) throws ParameterResolutionException {
-		return parameterContext.getParameter().getType() == EntityManager.class;
-	}
-
-	@Override
-	public Object resolveParameter(ParameterContext parameterContext, ExtensionContext extensionContext) throws ParameterResolutionException {
+	public EntityManager resolveParameter(ParameterContext parameterContext, ExtensionContext extensionContext) throws ParameterResolutionException {
 		return extensionContext.getStore(NAMESPACE)
 				.get(ENTITY_MANAGER_STORE_KEY, EntityManager.class);
 	}
