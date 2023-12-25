@@ -100,7 +100,7 @@
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.11.0</version>
+				<version>3.12.1</version>
 				<configuration>
 					<release>${java.version}</release>
 					<!-- IntelliJ IDEA doesn't understand <enablePreview> (see: https://youtrack.jetbrains.com/issue/IDEA-296303). -->
