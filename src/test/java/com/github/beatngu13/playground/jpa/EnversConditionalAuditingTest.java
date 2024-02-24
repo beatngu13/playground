@@ -24,7 +24,9 @@ class EnversConditionalAuditingTest {
 		var book = new Book();
 		book.setTitle("Some book");
 
+		assertThat(book.getId()).isNull();
 		entityManager.persist(book);
+		assertThat(book.getId()).isNotNull();
 	}
 
 	@Order(2)
