@@ -19,7 +19,7 @@ import static org.hibernate.envers.query.AuditEntity.id;
 class EnversConditionalAuditingTest {
 
 	static final Long ID = 1L;
-
+	static final String NEW_TITLE = "Other book";
 
 	@Order(1)
 	@Test
@@ -44,7 +44,10 @@ class EnversConditionalAuditingTest {
 	@Test
 	void updateBook(EntityManager entityManager) {
 		var book = entityManager.find(Book.class, ID);
-		book.setTitle("Other book");
+		book.setTitle(NEW_TITLE);
+
+		book = entityManager.find(Book.class, ID);
+		assertThat(book.getTitle()).isEqualTo(NEW_TITLE);
 	}
 
 	@Order(4)
@@ -66,7 +69,7 @@ class EnversConditionalAuditingTest {
 		assertThat(result).hasSize(3);
 
 		assertThat(result[0]).isInstanceOfSatisfying(Book.class,
-				book -> assertThat(book.getTitle()).isEqualTo("Other book"));
+				book -> assertThat(book.getTitle()).isEqualTo(NEW_TITLE));
 		assertThat(result[1]).isInstanceOfSatisfying(DefaultRevisionEntity.class,
 				defaultRevisionEntity -> assertThat(defaultRevisionEntity.getId()).isEqualTo(1));
 		assertThat(result[2]).isInstanceOfSatisfying(RevisionType.class,
