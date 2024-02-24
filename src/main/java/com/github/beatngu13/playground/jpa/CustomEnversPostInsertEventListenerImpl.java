@@ -1,4 +1,4 @@
-package com.github.beatngu13.playground.hibernate;
+package com.github.beatngu13.playground.jpa;
 
 import org.hibernate.envers.boot.internal.EnversService;
 import org.hibernate.envers.event.spi.EnversPostInsertEventListenerImpl;

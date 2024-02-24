@@ -1,4 +1,4 @@
-package com.github.beatngu13.playground.hibernate;
+package com.github.beatngu13.playground.jpa;
 
 import org.junit.jupiter.api.extension.ExtendWith;
 

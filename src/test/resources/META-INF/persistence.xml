@@ -5,7 +5,7 @@
 			 version="3.0">
 	<persistence-unit name="BookManagement">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-		<class>com.github.beatngu13.playground.hibernate.Book</class>
+		<class>com.github.beatngu13.playground.jpa.Book</class>
 		<properties>
 			<property name="jakarta.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver"/>
 			<property name="jakarta.persistence.jdbc.url" value="jdbc:hsqldb:mem:test"/>
