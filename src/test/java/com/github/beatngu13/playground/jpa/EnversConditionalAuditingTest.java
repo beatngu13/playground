@@ -18,6 +18,9 @@ import static org.hibernate.envers.query.AuditEntity.id;
 @TestMethodOrder(OrderAnnotation.class)
 class EnversConditionalAuditingTest {
 
+	static final Long ID = 1L;
+
+
 	@Order(1)
 	@Test
 	void insertBook(EntityManager entityManager) {
@@ -26,13 +29,13 @@ class EnversConditionalAuditingTest {
 
 		assertThat(book.getId()).isNull();
 		entityManager.persist(book);
-		assertThat(book.getId()).isNotNull();
+		assertThat(book.getId()).isEqualTo(ID);
 	}
 
 	@Order(2)
 	@Test
 	void selectBook(EntityManager entityManager) {
-		var book = entityManager.find(Book.class, 1L);
+		var book = entityManager.find(Book.class, ID);
 
 		assertThat(book).isNotNull();
 	}
@@ -40,7 +43,7 @@ class EnversConditionalAuditingTest {
 	@Order(3)
 	@Test
 	void updateBook(EntityManager entityManager) {
-		var book = entityManager.find(Book.class, 1L);
+		var book = entityManager.find(Book.class, ID);
 		book.setTitle("Other book");
 	}
 
@@ -50,7 +53,7 @@ class EnversConditionalAuditingTest {
 		var auditReader = AuditReaderFactory.get(entityManager);
 		var resultList = auditReader.createQuery()
 				.forRevisionsOfEntity(Book.class, false, false)
-				.add(id().eq(1L))
+				.add(id().eq(ID))
 				.getResultList();
 
 		/*
