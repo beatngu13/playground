@@ -9,7 +9,7 @@ import org.jboss.weld.junit5.auto.EnableAutoWeld;
 import org.junit.jupiter.api.Test;
 
 @EnableAutoWeld
-@AddPackages(com.github.beatngu13.playground.cdi.interceptor.MyService.class)
+@AddPackages(MyService.class)
 @AddEnabledInterceptors(MyServiceInterceptor.class)
 @ActivateScopes(ApplicationScoped.class)
 class MyServiceTest {
