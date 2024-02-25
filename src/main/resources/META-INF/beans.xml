@@ -4,6 +4,6 @@
 		xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/beans_1_1.xsd"
 		bean-discovery-mode="annotated">
 	<decorators>
-		<class>com.github.beatngu13.playground.cdi.MyServiceDecorator</class>
+		<class>com.github.beatngu13.playground.cdi.decorator.MyServiceDecorator</class>
 	</decorators>
 </beans>

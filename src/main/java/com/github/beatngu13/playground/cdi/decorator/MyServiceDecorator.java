@@ -1,4 +1,4 @@
-package com.github.beatngu13.playground.cdi;
+package com.github.beatngu13.playground.cdi.decorator;
 
 import jakarta.decorator.Decorator;
 import jakarta.decorator.Delegate;

@@ -1,4 +1,4 @@
-package com.github.beatngu13.playground.cdi;
+package com.github.beatngu13.playground.cdi.decorator;
 
 public interface MyService {
 

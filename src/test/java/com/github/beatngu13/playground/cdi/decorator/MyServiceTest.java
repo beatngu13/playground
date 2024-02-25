@@ -1,4 +1,4 @@
-package com.github.beatngu13.playground.cdi;
+package com.github.beatngu13.playground.cdi.decorator;
 
 import jakarta.inject.Inject;
 import org.jboss.weld.junit5.auto.AddEnabledDecorators;
