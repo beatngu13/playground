@@ -6,4 +6,7 @@
 	<decorators>
 		<class>com.github.beatngu13.playground.cdi.decorator.MyServiceDecorator</class>
 	</decorators>
+	<interceptors>
+		<class>com.github.beatngu13.playground.cdi.interceptor.MyServiceInterceptor</class>
+	</interceptors>
 </beans>
