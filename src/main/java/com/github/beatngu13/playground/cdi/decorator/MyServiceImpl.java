@@ -1,8 +1,8 @@
 package com.github.beatngu13.playground.cdi.decorator;
 
-import jakarta.enterprise.context.Dependent;
+import jakarta.enterprise.context.ApplicationScoped;
 
-@Dependent
+@ApplicationScoped
 public class MyServiceImpl implements MyService {
 
 	@Override
