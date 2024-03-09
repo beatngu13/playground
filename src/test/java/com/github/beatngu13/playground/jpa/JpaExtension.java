@@ -56,7 +56,8 @@ public class JpaExtension extends TypeBasedParameterResolver<EntityManager>
 	}
 
 	@Override
-	public EntityManager resolveParameter(ParameterContext parameterContext, ExtensionContext context) throws ParameterResolutionException {
+	public EntityManager resolveParameter(ParameterContext parameterContext, ExtensionContext context)
+			throws ParameterResolutionException {
 		return context.getStore(NAMESPACE)
 				.get(ENTITY_MANAGER_STORE_KEY, EntityManager.class);
 	}
