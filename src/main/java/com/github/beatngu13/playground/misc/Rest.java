@@ -1,13 +1,13 @@
 package com.github.beatngu13.playground.misc;
 
-import com.google.gson.annotations.SerializedName;
-import kong.unirest.HttpResponse;
-import kong.unirest.JsonNode;
-import kong.unirest.Unirest;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import kong.unirest.core.HttpResponse;
+import kong.unirest.core.JsonNode;
+import kong.unirest.core.Unirest;
 
 public class Rest {
 
-	record UUID(@SerializedName("uuid") String value) {
+	record UUID(@JsonProperty("uuid") String value) {
 	}
 
 	public static void main(String[] args) {
@@ -23,7 +23,7 @@ public class Rest {
 		System.out.println(response.getHeaders());
 
 		JsonNode json = response.getBody();
-		System.out.println(json.getObject().get("uuid"));
+		System.out.println(STR."UUID from JSON: \{json.getObject().get("uuid")}");
 	}
 
 	private static void objectResponse() {
@@ -32,8 +32,7 @@ public class Rest {
 				.asObject(UUID.class);
 
 		UUID uuid = getResponse.getBody();
-		String value = uuid.value();
-		System.out.println(value);
+		System.out.println(STR."UUID from object: \{uuid.value()}");
 	}
 
 }

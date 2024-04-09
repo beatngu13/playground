@@ -10,13 +10,19 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.resources.sourceEncoding>UTF-8</project.resources.sourceEncoding>
 		<java.version>22</java.version>
-		<unirest.version>3.14.5</unirest.version>
 		<hibernate.version>6.4.4.Final</hibernate.version>
 		<junit.jupiter.version>5.10.2</junit.jupiter.version>
 	</properties>
 
 	<dependencyManagement>
 		<dependencies>
+			<dependency>
+				<groupId>com.konghq</groupId>
+				<artifactId>unirest-java-bom</artifactId>
+				<version>4.3.0</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
 			<dependency>
 				<groupId>org.junit</groupId>
 				<artifactId>junit-bom</artifactId>
@@ -30,14 +36,12 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.konghq</groupId>
-			<artifactId>unirest-java</artifactId>
-			<version>${unirest.version}</version>
+			<artifactId>unirest-java-core</artifactId>
 		</dependency>
 
 		<dependency>
 			<groupId>com.konghq</groupId>
-			<artifactId>unirest-object-mappers-gson</artifactId>
-			<version>${unirest.version}</version>
+			<artifactId>unirest-modules-jackson</artifactId>
 		</dependency>
 
 		<dependency>
