@@ -2,6 +2,7 @@ package com.github.beatngu13.playground.jpa;
 
 import org.hibernate.HibernateException;
 import org.hibernate.boot.Metadata;
+import org.hibernate.boot.spi.BootstrapContext;
 import org.hibernate.engine.spi.SessionFactoryImplementor;
 import org.hibernate.envers.boot.internal.EnversService;
 import org.hibernate.envers.event.spi.EnversListenerDuplicationStrategy;
@@ -14,6 +15,7 @@ import org.hibernate.envers.event.spi.EnversPreUpdateEventListenerImpl;
 import org.hibernate.event.service.spi.EventListenerRegistry;
 import org.hibernate.event.spi.EventType;
 import org.hibernate.integrator.spi.Integrator;
+import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.spi.SessionFactoryServiceRegistry;
 
 /**
@@ -24,7 +26,8 @@ public class CustomIntegrator implements Integrator {
 	private static final String AUTO_REGISTER = "hibernate.envers.autoRegisterListeners";
 
 	@Override
-	public void integrate(Metadata metadata, SessionFactoryImplementor sessionFactory, SessionFactoryServiceRegistry serviceRegistry) {
+	public void integrate(Metadata metadata, BootstrapContext bootstrapContext, SessionFactoryImplementor sessionFactory) {
+		final ServiceRegistry serviceRegistry = sessionFactory.getServiceRegistry();
 		final EnversService enversService = serviceRegistry.getService(EnversService.class);
 
 		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
