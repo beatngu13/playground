@@ -11,9 +11,9 @@ class HashMapVsHashSetTest {
 
 	@Test
 	void test() {
-		// Use deprecated ctor to circumvent caching.
-		var first = new Integer(1);
-		var second = new Integer(1);
+		// Integer cache is [-128, 127], use a value outside of this.
+		var first = Integer.valueOf(128);
+		var second = Integer.valueOf(128);
 
 		assertThat(first)
 				.isNotSameAs(second)
