@@ -137,8 +137,7 @@
 				<version>3.13.0</version>
 				<configuration>
 					<release>${java.version}</release>
-					<!-- IntelliJ IDEA doesn't understand <enablePreview> (see: https://youtrack.jetbrains.com/issue/IDEA-296303). -->
-					<compilerArgs>--enable-preview</compilerArgs>
+					<enablePreview>true</enablePreview>
 				</configuration>
 			</plugin>
 
