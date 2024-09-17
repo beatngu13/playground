@@ -23,7 +23,7 @@ public class Rest {
 		System.out.println(response.getHeaders());
 
 		JsonNode json = response.getBody();
-		System.out.println(STR."UUID from JSON: \{json.getObject().get("uuid")}");
+		System.out.println("UUID from JSON: " + json.getObject().get("uuid"));
 	}
 
 	private static void objectResponse() {
@@ -32,7 +32,7 @@ public class Rest {
 				.asObject(UUID.class);
 
 		UUID uuid = getResponse.getBody();
-		System.out.println(STR."UUID from object: \{uuid.value()}");
+		System.out.println("UUID from object: " + uuid.value());
 	}
 
 }

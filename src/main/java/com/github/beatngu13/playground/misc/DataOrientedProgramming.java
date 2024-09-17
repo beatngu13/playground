@@ -22,14 +22,14 @@ class DataOrientedProgramming {
 
 		@Override
 		public String errorMessage() {
-			return STR. "Expected \{ maxFavorites } but was \{ actualFavorites }." ;
+			return String.format("Expected %s but was %s.", maxFavorites, actualFavorites);
 		}
 	}
 
 	record UserNotFound(int userId) implements Failure {
 		@Override
 		public String errorMessage() {
-			return STR. "User ID \{ userId } not found." ;
+			return String.format("User ID %s not found.", userId);
 		}
 	}
 

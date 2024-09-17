@@ -11,7 +11,7 @@ public class MyServiceInterceptor {
 
 	@AroundInvoke
 	public Object aroundInvoke(InvocationContext context) throws Exception {
-		System.out.println(STR. "MyServiceInterceptor.aroundInvoke(\{ context.getParameters()[0] })" );
+		System.out.printf("MyServiceInterceptor.aroundInvoke(%s)%n", context.getParameters()[0]);
 		return context.proceed();
 	}
 
