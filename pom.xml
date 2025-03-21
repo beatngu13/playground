@@ -11,7 +11,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.resources.sourceEncoding>UTF-8</project.resources.sourceEncoding>
-		<java.version>23</java.version>
+		<java.version>24</java.version>
 		<hibernate.version>6.6.10.Final</hibernate.version>
 	</properties>
 
